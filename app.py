@@ -1,4 +1,6 @@
 
+import os
+
 from nicegui import ui
 from calculator import future_value
 
@@ -18,5 +20,8 @@ def home():
 
     ui.button('Calculate', on_click=calculate)
 
-ui.run()
+ui.run(
+    host='0.0.0.0',
+    port=int(os.environ.get('PORT', 8080)),
+)
 
